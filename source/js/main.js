@@ -110,11 +110,9 @@
                 headerH = header.clientHeight,
                 titles = $('#post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
 
-            if (titles.length > 0) {
-                toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
-            } else {
-                toc.querySelectorAll('a')[0].parentNode.classList.add('active');
-            }
+            var firstLink = titles.length > 0 ? toc.querySelector('a[href="#' + titles[0].id + '"]') : toc.querySelectorAll('a')[0];
+
+            firstLink.parentNode.classList.add('active');
 
             // Make every child shrink initially
             var tocChilds = toc.querySelectorAll('.post-toc-child');
@@ -122,8 +120,7 @@
                 tocChilds[i].classList.add('post-toc-shrink');
             }
             var firstChild =
-                toc.querySelector('a[href="#' + titles[0].id + '"]')
-                    .nextElementSibling;
+                firstLink.nextElementSibling;
             if (firstChild) {
                 firstChild.classList.add('post-toc-expand');
                 firstChild.classList.remove('post-toc-shrink');
@@ -170,7 +167,7 @@
                         }
                     }
 
-                    if (top < offset(titles[0]).y) {
+                    if (titles.length > 0 && top < offset(titles[0]).y) {
                         handleTocActive(
                             toc.querySelector('li.active'),
                             toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode
