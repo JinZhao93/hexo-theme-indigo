@@ -112,7 +112,8 @@
 
             var firstLink = titles.length > 0 ? toc.querySelector('a[href="#' + titles[0].id + '"]') : toc.querySelectorAll('a')[0];
 
-            firstLink.parentNode.classList.add('active');
+            if (firstLink)
+                firstLink.parentNode.classList.add('active');
 
             // Make every child shrink initially
             var tocChilds = toc.querySelectorAll('.post-toc-child');
