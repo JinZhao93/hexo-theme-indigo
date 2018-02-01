@@ -1,19 +1,22 @@
-<% if(theme.toc){  %>
-    <aside id="toc-div" class="post-widget" <% if (post.encrypt == true) { %>style="display:none" <% } %>>
-        <nav class="post-toc-wrap" post-toc-shrink id="post-toc">
-            <h4>TOC</h4>
-                <% if (post.encrypt == true) {%>
-                    <%- toc(post.origin, {
-                            class: 'post-toc',
-                            list_number: theme.toc.list_number
-                        }) %>
-                <% } else { %>
-                    <%- toc(post.content, {
-                            class: 'post-toc',
-                            list_number: theme.toc.list_number
-                        }) %>
-                <% } %>
-        </nav>
-    </aside>
-    <%
+<% if(theme.toc){
+    var topicOrigin = toc(post.origin, {
+        class: 'post-toc',
+        list_number: theme.toc.list_number
+    })
+    var topicContent = toc(post.content, {
+        class: 'post-toc',
+        list_number: theme.toc.list_number
+    })
+%>
+<aside id="toc-div" class="post-widget" <% if (post.encrypt == true) { %>style="display:none" <% } %>>
+    <nav class="post-toc-wrap" post-toc-shrink id="post-toc">
+        <h4>TOC</h4>
+        <% if (post.encrypt == true && topicOrigin) {%>
+        <%- topicOrigin %>
+        <% } else if(topicContent) { %>
+        <%- topicContent  %>
+        <% } %>
+    </nav>
+</aside>
+<%
 } %>
