@@ -1,6 +1,6 @@
 <% if(theme.toc){  %>
     <aside id="toc-div" class="post-widget" <% if (post.encrypt == true) { %>style="display:none" <% } %>>
-        <nav class="post-toc-wrap" id="post-toc">
+        <nav class="post-toc-wrap" post-toc-shrink id="post-toc">
             <h4>TOC</h4>
                 <% if (post.encrypt == true) {%>
                     <%- toc(post.origin, {

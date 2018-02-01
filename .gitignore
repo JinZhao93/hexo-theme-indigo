@@ -1,4 +1,6 @@
 .idea/
 _comfig.yml
 source/img/
+source/js/main.min.js
+source/js/serch.min.js
 .DS_Store
