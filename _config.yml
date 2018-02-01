@@ -12,21 +12,26 @@ menu:
     text: 主页
     url: /
   archives:
+    text: 归档
     url: /archives
   tags:
+    text: 标签
     url: /tags
   th-list:
-    text: Categories
+    text: 分类
     url: /categories
+  user-circle:
+    text: 关于
+    url: /about
   github:
-    url: https://github.com/yscoder
+    url: https://github.com/JinZhao93
     target: _blank
-  weibo:
-    url: http://www.weibo.com/ysweb
-    target: _blank
-  link:
-    text: 测试
-    url: /custom
+  # weibo:
+  #   url: http://www.weibo.com/ysweb
+  #   target: _blank
+  # link:
+  #   text: 测试
+  #   url: /custom
 
 # 你的头像url
 avatar: /img/avatar.jpg
@@ -38,15 +43,16 @@ brand: /img/brand.jpg
 favicon: /favicon.ico
 
 # email
-email: 634206017@qq.com
+email: duzhaowork@163.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
 color: '#3F51B5'
 
 # 页面标题
-tags_title: Tags
-archives_title: Archives
-categories_title: Categories
+tags_title: 标签
+archives_title: 归档
+categories_title: 分类
+about_title: 关于
 
 # 文章截断
 excerpt_render: false
@@ -79,7 +85,7 @@ toc:
   list_number: true  # 是否显示数字排序
 
 # 文章页留言内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
-postMessage: 这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>
+postMessage: <a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>
 
 # 站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
 cnzz: false
@@ -115,13 +121,13 @@ gitment: false
 
 # Valine Comment system. https://valine.js.org
 valine:
-  enable: false # 如果你想使用valine，请将值设置为 true
-  appId:  # your leancloud appId
-  appKey:  # your leancloud appKey
-  notify: false # Mail notify
+  enable: true # 如果你想使用valine，请将值设置为 true
+  appId: H4ndW1LFtl9oThWL4aAXYDoU-gzGzoHsz  # your leancloud appId
+  appKey: Yff4AtvDT1C4hdtNDYEDmFRj  # your leancloud appKey
+  notify: true # Mail notify
   verify: false # Verify code
-  avatar: mm # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
-  placeholder: Just go go # Comment Box placeholder
+  avatar: jinzhao # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
+  placeholder: 欢迎在此评论~ # Comment Box placeholder
   guest_info: nick,mail,link # Comment header info
   pageSize: 10 # comment list page size
 
@@ -134,10 +140,10 @@ valine:
 canonical: false
 
 # 版权起始年份
-since_year: 2015
+since_year: 2018
 
 # 用户页面中作者相关的描述性文字，如不需要设为 false
-about: 用户页面中作者相关的描述性文字，如不需要设为 false
+about: 终日醉生梦死的理想主义者
 
 # “不蒜子”访问量统计，详见 http://ibruce.info/2015/04/04/busuanzi/
 visit_counter:
@@ -145,9 +151,9 @@ visit_counter:
   site_pv: 站点总访问量：
 
 # 动态定义title
-title_change:
-  normal: (つェ⊂)咦!又好了!
-  leave: 死鬼去哪里了！
+# title_change:
+#   normal: (つェ⊂)咦!又好了!
+#   leave: 死鬼去哪里了！
 
 # 设置为 true 发布后将使用 unpkg cdn 最新的主题样式
 # 如果想让你的自定义样式生效，把此项设为 false

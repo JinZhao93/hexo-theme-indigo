@@ -110,13 +110,35 @@
                 headerH = header.clientHeight,
                 titles = $('#post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
 
-            toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
+            // 加密后titles为空数组, 默认给第一个a标签添加'active'
+            if (titles.length > 0) {
+                toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
+            } else {
+                toc.querySelectorAll('a')[0].parentNode.classList.add('active');
+            }
+
+            // Make every child shrink initially
+            var tocChilds = toc.querySelectorAll('.post-toc-child');
+            for (i = 0, len = tocChilds.length; i < len; i++) {
+                tocChilds[i].classList.add('post-toc-shrink');
+            }
+            var firstChild =
+                toc.querySelector('a[href="#' + titles[0].id + '"]')
+                    .nextElementSibling;
+            if (firstChild) {
+                firstChild.classList.add('post-toc-expand');
+                firstChild.classList.remove('post-toc-shrink');
+            }
+            toc.classList.remove('post-toc-shrink');
 
             return {
                 fixed: function (top) {
                     top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed');
                 },
                 actived: function (top) {
+                    if (titles.length == 0) {
+                      titles = $('#post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
+                    }
                     for (i = 0, len = titles.length; i < len; i++) {
                         if (top > offset(titles[i]).y - headerH - 5) {
                             toc.querySelector('li.active').classList.remove('active');
@@ -126,7 +148,7 @@
                         }
                     }
 
-                    if (top < offset(titles[0]).y) {
+                    if (titles.length > 0 && top < offset(titles[0]).y) {
                         toc.querySelector('li.active').classList.remove('active');
                         toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
                     }
