@@ -36,11 +36,11 @@ menu:
 # 你的头像url
 avatar: /img/avatar.jpg
 # avatar link
-avatar_link: /
+avatar_link: /about
 # 头像背景图
 brand: /img/brand.jpg
 # favicon
-favicon: /favicon.ico
+favicon: /img/favicon.png
 
 # email
 email: duzhaowork@163.com
@@ -77,7 +77,7 @@ reward:
 search: true
 
 # 是否大屏幕下文章页隐藏导航
-hideMenu: true
+hideMenu: fase
 
 # 是否开启toc
 # toc: false
@@ -157,7 +157,7 @@ visit_counter:
 
 # 设置为 true 发布后将使用 unpkg cdn 最新的主题样式
 # 如果想让你的自定义样式生效，把此项设为 false
-cdn: true
+cdn: false
 
 # 设置为 true 将使用 lightbox render 图片
 lightbox: true
